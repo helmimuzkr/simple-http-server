@@ -9,7 +9,7 @@ import (
 
 func main() {
 	s := server.NewServer()
-	s.AddHandler("POST /", middlewareHandler(helloHandler))
+	s.HandleFunc("POST /", middlewareHandler(helloHandler))
 	s.Run()
 }
 
@@ -21,9 +21,10 @@ func helloHandler(w io.WriteCloser, r *server.Request) {
 	w.Write([]byte(response))
 }
 
-func middlewareHandler(h server.HandlerFunc) server.HandlerFunc {
+func middlewareHandler(next server.HandlerFunc) server.HandlerFunc {
 	return func(w io.WriteCloser, r *server.Request) {
-		slog.Info("Call middleware")
-		h.Serve(w, r)
+		slog.Info("start middlewareHandler")
+		next(w, r)
+		slog.Info("end middlewareHandler")
 	}
 }
