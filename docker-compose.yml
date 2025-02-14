@@ -1,4 +1,4 @@
 services:
   tekkotekkotech-be:
-    image: ${SH_DOCKER_USER}/${SH_PROJECT_NAME}:latest
-    container_name: ${SH_PROJECT_NAME}
+    image: ${SHS_DOCKER_USER}/${SHS_PROJECT_NAME}:latest
+    container_name: ${SHS_PROJECT_NAME}
