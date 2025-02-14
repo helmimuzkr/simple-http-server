@@ -1,6 +1,7 @@
 FROM golang:1.23.0-alpine
 
-RUN mkdir /app/sh
+# when creating subdirectories hanging off from a non-existing parent directory(s) you must pass the -p flag to mkdir
+RUN mkdir -p /app/sh
 
 WORKDIR /app/sh
 
