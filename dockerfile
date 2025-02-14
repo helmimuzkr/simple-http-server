@@ -4,7 +4,6 @@ RUN mkdir /app/sh
 
 WORKDIR /app/sh
 
-
 ADD . /app/sh
 
 RUN go test -v ./...
