@@ -22,7 +22,7 @@ type Server struct {
 func NewServer() *Server {
 	return &Server{
 		Host:    "localhost",
-		Port:    ":6969",
+		Port:    ":24434",
 		handler: make(map[string]Handler),
 	}
 }
