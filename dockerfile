@@ -1,13 +1,14 @@
 FROM golang:1.23.0-alpine
 
-RUN mkdir /app
+RUN mkdir /app/sh
 
-WORKDIR /app
+WORKDIR /app/sh
 
-ADD . /app
+
+ADD . /app/sh
 
 RUN go test -v ./...
 
-RUN go build -o main .
+RUN go build -o main ./cmd/*.go
 
-CMD ["/app/main"]
+CMD ["/app/sh/main"]
