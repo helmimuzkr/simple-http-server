@@ -1,4 +1,15 @@
 services:
-  tekkotekkotech-be:
+  simple-http-server:
     image: ${SHS_DOCKER_USER}/${SHS_PROJECT_NAME}:latest
     container_name: ${SHS_PROJECT_NAME}
+  ports:
+    - 127.0.0.1:24434:24434
+  networks:
+    - traefik-network
+  labels:
+    - traefik.enable=true
+    - traefik.http.routers.shs-http.rule=Host(`shs.tekkotekko.tech`)
+    - traefik.http.routers.shs-http.entrypoint=web
+networks:
+  traefik-network:
+    external: true

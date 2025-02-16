@@ -53,4 +53,4 @@ jobs:
                       export SHS_PROJECT_NAME=${{ github.event.repository.name }}
                       cd ~/.deploy/${{ github.event.repository.name }} 
                       ls -al
-                      docker compose up -d
+                      docker compose down && docker compose up -d
